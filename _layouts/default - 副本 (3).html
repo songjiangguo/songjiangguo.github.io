@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+</head>
+<body>
+  <!-- 网站头部 -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="{{ '/' | relative_url }}">
+          <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="{{ site.title }}">
+          <span>{{ site.title }}</span>
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          {% for item in site.navigation.main %}
+            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-content">
+    {{ content }}
+  </main>
+
+  <!-- 网站页脚 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-section">
+        <h3>关于我们</h3>
+        <p>{{ site.description }}</p>
+      </div>
+      <div class="footer-section">
+        <h3>快速链接</h3>
+        <ul>
+          {% for item in site.navigation.main limit:4 %}
+            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>联系我们</h3>
+        <p>邮箱: contact@notiontools.com</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. 保留所有权利。</p>
+    </div>
+  </footer>
+</body>
+</html>

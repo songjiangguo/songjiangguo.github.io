@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<div class="layout-sidebar">
+  <aside class="sidebar">
+    <nav class="nav__list">
+      {% for item in site.navigation.main %}
+        <a href="{{ item.url | relative_url }}" 
+           class="nav__item{% if page.url == item.url %} active{% endif %}">
+          {{ item.title }}
+        </a>
+      {% endfor %}
+    </nav>
+  </aside>
+  
+  <main class="main-content">
+    {{ content }}
+  </main>
+</div>

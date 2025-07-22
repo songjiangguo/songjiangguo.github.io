@@ -1,12 +1,9 @@
 ---
-layout: sidebar # 
-#layout: home # 使用新创建的布局
-title: 隐私政策
-subtitle: 提升您的工作效率，简化工作流程
-author_profile: true
+layout: sidebar  # 布局名称单独一行
+title: 服务条款  # 标题单独一行
+subtitle: 提升您的工作效率，简化工作流程  # 副标题单独一行
+author_profile: true  # 其他配置单独一行
 ---
-
-我们的工具集专为 Notion 用户设计，提供了一系列强大的功能，帮助您更高效地组织信息、管理项目和自动化工作流程。
 
 ✨ 核心功能
 模板库：访问数百个精心设计的 Notion 模板
@@ -18,4 +15,5 @@ author_profile: true
 功能强大：满足从个人用户到企业团队的各种需求
 安全保障：端到端加密，确保您的数据安全
 持续更新：每月新增功能和改进
+permalink: /privacy-policy/  # 定义访问链接
 permalink: /privacy-policy/  # 定义访问链接

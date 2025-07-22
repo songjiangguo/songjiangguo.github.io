@@ -7,3 +7,105 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+@import "minimal-mistakes/sidebar"; 
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+/* 页眉样式 */
+.site-header {
+  /* 设置背景图片 - 替换为你的图片路径 */
+  background-image: url('/assets/images/header-bg.jpg');
+  /* 保持背景图片比例并覆盖整个区域 */
+  background-size: cover;
+  background-position: center;
+  /* 半透明背景色叠加在图片上 */
+  background-color: rgba(255, 255, 255, 0.7);
+  /* 背景图片和颜色混合 */
+  background-blend-mode: overlay;
+  padding: 1.5rem 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Logo样式 */
+.site-logo .logo-img {
+  height: 60px; /* 根据需要调整logo高度 */
+  width: auto; /* 保持宽高比 */
+}
+
+/* 导航菜单样式 */
+.main-navigation ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.main-navigation a {
+  color: #333; /* 文字颜色 */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.main-navigation a:hover {
+  color: #007bff; /* 悬停时的颜色 */
+}
+
+/* 响应式调整 - 在小屏幕上堆叠显示 */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .main-navigation ul {
+    gap: 1rem;
+  }
+}
+
+footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  /* 页脚居中样式 */
+.page__footer-inner-wrapper {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+
+/* 让列表水平排列（可选） */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px; /* 图标之间的间距 */
+  padding-left: 0;
+  list-style: none;
+}
+
+.social-icons li {
+  margin: 0; /* 移除默认的上下边距 */
+}
+
+/* 版权信息居中 */
+.page__footer-copyright {
+  text-align: center;
+}
+}
