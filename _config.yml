@@ -331,15 +331,15 @@ defaults:
       layout: sidebar
 navigation:
   main:
-    - title: "首页"
+    - title: "Home"
       url: /
-    - title: "产品介绍"
+    - title: "Products"
       url: /features/
 
-    - title: "隐私声明"
+    - title: "privacy-policy"
       url: /privacy-policy/
-    - title: "服务条款"
+    - title: "terms-of-service"
       url: /terms-of-service/
-    - title: "退款政策"
+    - title: "refund_condition"
       url: /refund_condition/
  

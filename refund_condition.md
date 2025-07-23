@@ -5,15 +5,5 @@ subtitle: 提升您的工作效率，简化工作流程  # 副标题单独一行
 author_profile: true  # 其他配置单独一行
 ---
 
-✨ 退款政策
-用户在购买产品后，如果产品无法使用，则可以在7天内申请退款。
-数据同步：将其他平台数据自动同步到 Notion
-自动化：创建自定义工作流程和自动化任务
-团队协作：增强团队协作和项目管理功能
-📈 为什么选择我们？
-简单易用：无需编程知识，直观的界面设计
-功能强大：满足从个人用户到企业团队的各种需求
-安全保障：端到端加密，确保您的数据安全
-持续更新：每月新增功能和改进
-permalink: /privacy-policy/  # 定义访问链接
-permalink: /privacy-policy/  # 定义访问链接
+✨ refund_condition
+As this product is an electronic software, it does not support unconditional refunds. If the product cannot be used after purchase and remote maintenance, users can apply for a refund within 7 days. You agree that before returning the product, you are responsible for erasing all personal files and data created by you on the returned product. If you wish to retain any files or data created by you, you should backup them yourself before returning the product. After returning the product, if any files or data are still retained or erased from the returned product, Apple shall not be held responsible

@@ -5,12 +5,11 @@ subtitle: 提升您的工作效率，简化工作流程  # 副标题单独一行
 author_profile: true  # 其他配置单独一行
 ---
 
-✨ 联系我们
-本网站介绍的都是自行开发的各种软件工具，如在使用中出现问题，欢迎联系我们，联系方式如下：
-邮箱：<a href="mailto:４３１２６２１０＠ｑｑ．ｃｏｍ" target="_blank">４３１２６２１０＠ｑｑ．ｃｏｍ</a>
-
-📈 为什么选择我们？
-简单易用：无需编程知识，直观的界面设计
-功能强大：满足从个人用户到企业团队的各种需求
-安全保障：端到端加密，确保您的数据安全
-持续更新：新增功能和改进
+Contact Us：
+This website introduces various self-developed software tools. If you encounter any problems during use, please feel free to contact us. The contact information is as follows:
+Email:<a ref="mailto: 43126210 @ qq.com" target="-blank">43126210 @ qq.com</a>
+📈  Why choose us?
+Easy to use: No programming knowledge required, intuitive interface design
+Powerful functionality: meeting various needs from individual users to enterprise teams
+Security guarantee: end-to-end encryption to ensure the security of your data
+Continuous updates: new features and improvements
