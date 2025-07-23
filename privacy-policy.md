@@ -6,8 +6,7 @@ subtitle: 提升您的工作效率，简化工作流程
 author_profile: true
 ---
 
-PRIVACY NOTICE
-Last updated July 22, 2025
+
 
 This Privacy Notice for us, describes how and why we might access, collect, store, use, and/or share ("process") your personal information when you use our services ("Services"), including when you:
 
@@ -118,7 +117,7 @@ Learn more in our Cookie Notice: https://notion.so/cookie
 5. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?
 In Short: We may transfer, store, and process your information in countries other than your own.
 
-Our servers are located in __________. If you access our Services from outside this location, your information may be transferred to our facilities.
+Our servers are located in American. If you access our Services from outside this location, your information may be transferred to our facilities.
 
 6. HOW LONG DO WE KEEP YOUR INFORMATION?
 In Short: We keep your information for as long as necessary to fulfill the purposes outlined in this Privacy Notice.
@@ -166,9 +165,12 @@ We will notify you of material changes.
 Email: 43126210@qq.com
 Postal Address:
 Xixiu District West Street Market
-安顺, 13984047886
+anshun, 13984047886
 561000
 China
 
 13. HOW CAN YOU REVIEW, UPDATE, OR DELETE YOUR DATA?
 Based on applicable laws, you may request to review, update, or delete your personal information by submitting a data subject access request.
+
+PRIVACY NOTICE
+Last updated July 22, 2025
