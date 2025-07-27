@@ -336,7 +336,7 @@ navigation:
     - title: "Products"
       url: /features/
     - title: "Pricing"
-      url: /Price/
+      url: /price/
     - title: "privacy-policy"
       url: /privacy-policy/
     - title: "terms-of-service"
