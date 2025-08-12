@@ -1,0 +1,103 @@
+远程主题改回本地改两点，一是_config.yml  注释掉#remote_theme  恢复 theme  2.gemfile 增加gem "minimal-mistakes-jekyll"
+
+bundle exec jekyll serve
+[!] There was an error parsing `Gemfile`: You cannot specify the same gem twice coming from different sources.
+You specified that minimal-mistakes-jekyll (>= 0) should come from source at `.` and
+. Bundler cannot continue.
+
+ #  from D:/jeky/songjiangguo.github.io/Gemfile:3
+ #  -------------------------------------------
+ #  gemspec
+ >  gem "minimal-mistakes-jekyll"
+ #  source "https://rubygems.org"
+ 
+ 1. 查看本地仓库的分支情况
+bash
+git branch -a  # 查看所有本地分支
+
+
+若输出结果中没有 master，而是显示 main 或者其他分支名，那就需要使用正确的分支名进行推送。
+2. 若本地分支是 main，则推送 main 分支
+bash
+git push -u origin main  # 推送 main 分支（默认情况）
+
+3. 若本地没有任何提交，需要先提交文件
+bash
+git add .  # 添加所有文件到暂存区
+git commit -m "Initial commit"  # 创建初始提交
+git push -u origin main  # 推送 main 分支
+
+如果你有新的代码修改，只需按常规流程操作即可：
+bash
+git add .  # 暂存修改
+git commit -m "描述你的修改"  # 提交修改
+git push  # 直接推送（因为已建立跟踪关系）
+
+使用 ping 和 telnet 测试网络连通性：
+
+bash
+# 测试 GitHub 的域名解析
+ping github.com
+
+# 测试端口 443 连接（Windows 可能需要先启用 Telnet 客户端）
+telnet github.com 443
+
+如果 ping 不通或 telnet 连接超时，说明网络存在问题，建议联系网络管理员。
+6. 使用 HTTPS 代理（如果需要）
+如果必须通过代理访问 GitHub，配置 Git 使用代理：
+
+bash
+# 设置 HTTP/HTTPS 代理
+git config --global http.proxy http://proxy.example.com:8080
+git config --global https.proxy http://proxy.example.com:8080
+
+# 如果代理需要认证
+git config --global http.proxy http://username:password@proxy.example.com:8080
+7. 临时使用 IP 地址替代域名
+通过 IPAddress.com 查询 GitHub 的 IP 地址，然后修改 hosts 文件：
+
+Windows：编辑 C:\Windows\System32\drivers\etc\hosts
+macOS/Linux：编辑 /etc/hosts
+
+添加一行（替换为实际查询到的 IP）：
+
+plaintext
+140.82.114.4 github.com
+完整解决流程示例
+bash
+# 1. 检查网络连接和 GitHub 状态
+
+# 2. 尝试切换到 SSH（如果已配置密钥）
+git remote set-url origin git@github.com:songjiangguo/songjiangguo.github.io.git
+git push -u origin main
+
+# 3. 检查并清除代理设置
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+# 4. 测试连接
+ping github.com
+
+检查代理设置
+查看当前代理设置：
+可以使用以下命令查看 Git 的代理配置：
+查看某个 Git 仓库代理配置：git config --get http.proxy 和 git config --get https.proxy。
+查看 Git 全局代理配置：git config --global --get http.proxy 和 git config --global --get https.proxy。
+设置代理：
+如果你正在使用代理软件，需要将 Git 的代理配置设置为与代理软件一致的端口。例如，代理软件的端口为 17890，则可以使用以下命令设置 Git 代理：
+git config --global http.proxy http://127.0.0.1:17890
+git config --global https.proxy http://127.0.0.1:17890
+取消代理：
+如果没有使用代理或者代理设置错误，可以使用以下命令取消代理配置：
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+刷新 DNS 缓存
+在命令行中输入 ipconfig /flushdns（Windows 系统）或 sudo killall -HUP mDNSResponder（macOS 系统），刷新 DNS 缓存，然后再次尝试 git push 操作。
+切换到 SSH 协议
+如果 HTTPS 连接始终存在问题，可以尝试使用 SSH 协议。具体步骤如下：
+
+生成 SSH 密钥：ssh-keygen -t rsa -b 4096 -C "your_email@example.com"，按提示生成密钥。
+添加公钥到 GitHub：将公钥（通常位于 ~/.ssh/id_rsa.pub）的内容添加到 GitHub 账户的 SSH 设置中。
+替换远程仓库地址：git remote set-url origin git@github.com:songjiangguo/songjiangguo.github.io.git
+测试 SSH 连接：ssh -T git@github.com，如果连接成功，再尝试推送代码。
+telnet github.com 443

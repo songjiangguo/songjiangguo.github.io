@@ -8,7 +8,7 @@ author_profile: true  # 其他配置单独一行
 
 We operate , as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services")，as follows:
 
-You can contact us  mail to 43126210@qq.com.
+You can contact us  mail to 43126210@qq.com，Songjianguo Co
 
 These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and us, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
 
@@ -144,4 +144,4 @@ Visiting the Services, sending us emails, and completing online forms constitute
 MISCELLANEOUS
 These Legal Terms and any policies or operating rules posted by us on the Services or in respect to the Services constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Legal Terms shall not operate as a waiver of such right or provision. These Legal Terms operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Legal Terms is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Legal Terms and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Legal Terms or use of the Services. You agree that these Legal Terms will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Legal Terms and the lack of signing by the parties hereto to execute these Legal Terms.
 CONTACT US
-In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:email to 43126210@qq.com
+In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:email to 43126210@qq.com Songjianguo Co 2025

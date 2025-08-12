@@ -173,4 +173,4 @@ China
 Based on applicable laws, you may request to review, update, or delete your personal information by submitting a data subject access request.
 
 PRIVACY NOTICE
-Last updated July 22, 2025
+Last updated July 22, 2025，Songjianguo Co
