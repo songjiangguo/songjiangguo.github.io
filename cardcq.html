@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28张牌随机抽取器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .card-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 40px 20px;
+            margin: 30px 0;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .card-display.draw-animation {
+            animation: drawEffect 0.8s ease;
+        }
+        
+        @keyframes drawEffect {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .card-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .card-name {
+            color: white;
+            font-size: 2.8em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-draw {
+            background: linear-gradient(to right, #4CAF50, #2E7D32);
+            color: white;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .btn-draw:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-reset {
+            background: linear-gradient(to right, #f44336, #c62828);
+            color: white;
+            box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+        }
+        
+        .btn-reset:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            color: #2c3e50;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        .history {
+            margin-top: 30px;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .history h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .history-list {
+            max-height: 200px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .history-item {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            background-color: white;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .history-item:nth-child(odd) {
+            background-color: #f0f4ff;
+        }
+        
+        .history-time {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        footer {
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .card-name {
+                font-size: 2.2em;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎴 28张牌随机抽取器</h1>
+        <p class="subtitle">点击按钮随机抽取一张牌，已抽牌将不再放回</p>
+        
+        <div class="card-display" id="cardDisplay">
+            <div class="card-label">当前抽中的牌：</div>
+            <div class="card-name" id="cardName">等待抽取...</div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn btn-draw" id="drawBtn">
+                <span>🎲 随机抽取一张牌</span>
+            </button>
+            <button class="btn btn-reset" id="resetBtn">
+                <span>🔄 重置所有牌</span>
+            </button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-label">剩余牌数</div>
+                <div class="stat-value" id="remainingCount">28</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">已抽牌数</div>
+                <div class="stat-value" id="drawnCount">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">抽取次数</div>
+                <div class="stat-value" id="drawCount">0</div>
+            </div>
+        </div>
+        
+        <div class="history">
+            <h3>📜 抽牌历史记录</h3>
+            <div class="history-list" id="historyList">
+                <!-- 历史记录将在这里显示 -->
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        本程序使用真随机算法 | 刷新页面可重新开始
+    </footer>
+
+    <script>
+        // 初始化牌组 - 这里我根据你描述的牌设置了前10张的名称
+        // 请将剩余的18张牌名称替换为你实际的牌名
+        let cardDeck = [
+            "辩证者", "仁爱者", "觉醒者", "无望者", "仁爱者", 
+            "无望者", "独立者", "觉醒者", "独立者", "渴求者",
+            // 请替换以下为你的实际牌名
+            "牌11", "牌12", "牌13", "牌14", "牌15", 
+            "牌16", "牌17", "牌18", "牌19", "牌20", 
+            "牌21", "牌22", "牌23", "牌24", "牌25", 
+            "牌26", "牌27", "牌28"
+        ];
+        
+        // 初始化剩余牌组
+        let remainingCards = [...cardDeck];
+        let drawnCards = [];
+        let drawHistory = [];
+        let totalDraws = 0;
+        
+        // DOM元素
+        const cardDisplay = document.getElementById('cardDisplay');
+        const cardName = document.getElementById('cardName');
+        const drawBtn = document.getElementById('drawBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const remainingCount = document.getElementById('remainingCount');
+        const drawnCount = document.getElementById('drawnCount');
+        const drawCount = document.getElementById('drawCount');
+        const historyList = document.getElementById('historyList');
+        
+        // 更新统计信息
+        function updateStats() {
+            remainingCount.textContent = remainingCards.length;
+            drawnCount.textContent = drawnCards.length;
+            drawCount.textContent = totalDraws;
+        }
+        
+        // 更新历史记录
+        function updateHistory() {
+            historyList.innerHTML = '';
+            
+            if (drawHistory.length === 0) {
+                historyList.innerHTML = '<div class="history-item" style="text-align:center;color:#7f8c8d;">暂无抽牌记录</div>';
+                return;
+            }
+            
+            // 只显示最近20条记录
+            const recentHistory = drawHistory.slice(-20).reverse();
+            
+            recentHistory.forEach(record => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                
+                const timeStr = new Date(record.time).toLocaleTimeString('zh-CN', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                
+                historyItem.innerHTML = `
+                    <span>第${record.drawNumber}次抽取：<strong>${record.card}</strong></span>
+                    <span class="history-time">${timeStr}</span>
+                `;
+                
+                historyList.appendChild(historyItem);
+            });
+        }
+        
+        // 随机抽取一张牌
+        function drawCard() {
+            if (remainingCards.length === 0) {
+                cardName.textContent = "所有牌已抽完！";
+                drawBtn.disabled = true;
+                drawBtn.style.opacity = "0.6";
+                return;
+            }
+            
+            // 随机选择一张牌
+            const randomIndex = Math.floor(Math.random() * remainingCards.length);
+            const drawnCard = remainingCards[randomIndex];
+            
+            // 从剩余牌组中移除
+            remainingCards.splice(randomIndex, 1);
+            
+            // 添加到已抽牌组
+            drawnCards.push(drawnCard);
+            totalDraws++;
+            
+            // 添加到历史记录
+            drawHistory.push({
+                card: drawnCard,
+                time: new Date(),
+                drawNumber: totalDraws
+            });
+            
+            // 显示抽中的牌
+            cardName.textContent = drawnCard;
+            
+            // 添加动画效果
+            cardDisplay.classList.remove('draw-animation');
+            void cardDisplay.offsetWidth; // 触发重排
+            cardDisplay.classList.add('draw-animation');
+            
+            // 更新界面
+            updateStats();
+            updateHistory();
+            
+            // 如果牌抽完了，禁用抽牌按钮
+            if (remainingCards.length === 0) {
+                drawBtn.disabled = true;
+                drawBtn.style.opacity = "0.6";
+                drawBtn.innerHTML = '<span>🎴 所有牌已抽完</span>';
+            }
+        }
+        
+        // 重置牌组
+        function resetDeck() {
+            remainingCards = [...cardDeck];
+            drawnCards = [];
+            drawHistory = [];
+            totalDraws = 0;
+            
+            cardName.textContent = "等待抽取...";
+            drawBtn.disabled = false;
+            drawBtn.style.opacity = "1";
+            drawBtn.innerHTML = '<span>🎲 随机抽取一张牌</span>';
+            
+            updateStats();
+            updateHistory();
+        }
+        
+        // 事件监听
+        drawBtn.addEventListener('click', drawCard);
+        resetBtn.addEventListener('click', resetDeck);
+        
+        // 键盘快捷键支持
+        document.addEventListener('keydown', (event) => {
+            // 空格键抽牌
+            if (event.code === 'Space' && remainingCards.length > 0) {
+                event.preventDefault();
+                drawCard();
+            }
+            
+            // R键重置
+            if (event.code === 'KeyR' && (event.ctrlKey || event.metaKey)) {
+                event.preventDefault();
+                resetDeck();
+            }
+        });
+        
+        // 初始化界面
+        updateStats();
+        updateHistory();
+        
+        // 添加使用说明提示
+        setTimeout(() => {
+            if (remainingCards.length === 28 && drawHistory.length === 0) {
+                alert("使用提示：\n1. 点击【随机抽取一张牌】按钮开始抽牌\n2. 按空格键可快速抽牌\n3. 按Ctrl+R可重置所有牌\n4. 请将代码中的牌名替换为你的实际28张牌名称");
+            }
+        }, 500);
+    </script>
+</body>
+</html>
